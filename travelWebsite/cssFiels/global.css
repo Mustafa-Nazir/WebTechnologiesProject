@@ -1,0 +1,33 @@
+*{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+a{
+    text-decoration: none !important;
+}
+.white-text{
+    color: white;
+}
+.black-text{
+    color: black;
+}
+.small-text{
+    font-size: 1rem;
+}
+.medium-text{
+    font-size: 1.5rem;
+}
+.large-text{
+    font-size: 1.7rem;
+}
+.border-color{
+    border-color: rgb(253, 228, 0);
+}
+.border-width{
+    border-width: 3px;
+}
+.background-color{
+    background-color: rgb(253, 228, 0);
+}
+.main-text-color{
+    color:rgb(253, 228, 0);
+}

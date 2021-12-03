@@ -1,0 +1,28 @@
+{
+    "cities": [
+        {
+            "name": "istanbul",
+            "main_image": "../images/main_istanbul.png",
+            "main_image_2": "../images/main_istanbul_2.png",
+            "main_info":"Istanbul is the largest city in Turkey and the country's economic, cultural and historic center. The city straddles the Bosporus strait, and lies in both Europe and Asia, with a population of over 15 million residents, comprising 19% of the population of Turkey."
+        },
+        {
+            "name": "bursa",
+            "main_image": "../images/main_bursa.png",
+            "main_image_2": "../images/main_bursa_2.png",
+            "main_info":"Bursa is a city in northwestern Turkey. The fourth-most populous city in Turkey and second-most populous in the Marmara Region, Bursa is one of the industrial centers of the country. Most of Turkey's automotive production takes place in Bursa."
+        },
+        {
+            "name": "sakarya",
+            "main_image": "../images/main_sakarya.png",
+            "main_image_2": "../images/main_sakarya_2.png",
+            "main_info":"Sakarya is a province in Turkey, located on the coast of Black Sea. The Sakarya River creates a webbing of estuaries in the province. Sakarya is located in the Marmara Region."
+        },
+        {
+            "name": "ankara",
+            "main_image": "../images/main_ankara.png",
+            "main_image_2": "../images/main_ankara_2.png",
+            "main_info":"Ankara is the capital of Turkey. Located in the central part of Anatolia, the city has a population of 4.5 million in its urban center and over 5.6 million in Ankara Province, making it Turkey's second-largest city after Istanbul."
+        }
+    ]
+}

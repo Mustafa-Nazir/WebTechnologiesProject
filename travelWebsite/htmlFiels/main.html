@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jquery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- global css file -->
+    <link rel="stylesheet" href="../cssFiels/global.css">
+
+    <!-- main css file -->
+    <link rel="stylesheet" href="../cssFiels/main.css">
+    <title>Explore Turkey</title>
+</head>
+
+<body>
+    <!-- Navbar and main image -->
+    <header>
+        <!-- main image -->
+        <div id="main-image" class="w-100">
+            <!-- navbar -->
+            <nav class="navbar navbar-expand-sm">
+                <div class="navbar-nav"><strong>Turkey</strong></div>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#cities">Cities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#brief">Brief</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- image-Texts -->
+            <div id="image-text">
+                <div>
+                    <h1 class="display-2 font-weight-bolder">
+                        Explore Turkey's The Best Cities
+                    </h1>
+                    <p>
+                        Explore Turkey's the best beautiful cities and its places.
+                    </p>
+                </div>
+                <span><a class="btn black-text medium-text" href="#cities">Explore</a></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cities Section -->
+    <section id="cities" class="mt-5">
+        <!-- cities title -->
+        <div id="cities-title" class="container">
+            <h2 class="medium-text mb-0 text-secondary">Cities</h2>
+            <div>
+                <hr class="border-color border-width m-0">
+            </div>
+            <h3 class="large-text mt-3">Some cities around Turkey</h3>
+        </div>
+
+        <!-- cities grid -->
+        <div id="grid" class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="image-brief">
+                        <h4 class="mb-2 main-text-color">İstanbul</h4>
+                        <p class="mt-2">Here will be filled.</p>
+                    </div>
+                    <span>İstanbul</span>
+                    <img src="../images/main_istanbul.png" alt="">
+                </div>
+                <div class="col-sm-3">
+                    <div class="image-brief">
+                        <h4 class="mb-2 main-text-color">Bursa</h4>
+                        <p class="mt-2">Here will be filled.</p>
+                    </div>
+                    <span>Bursa</span>
+                    <img src="../images/main_bursa.png" alt="">
+                </div>
+                <div class="col-sm-3">
+                    <div class="image-brief">
+                        <h4 class="mb-2 main-text-color">Sakarya</h4>
+                        <p class="mt-2">Here will be filled.</p>
+                    </div>
+                    <span>Sakarya</span>
+                    <img src="../images/main_sakarya.png" alt="">
+                </div>
+                <div class="col-sm-3">
+                    <div class="image-brief">
+                        <h4 class="mb-2 main-text-color">Ankara</h4>
+                        <p class="mt-2">Here will be filled.</p>
+                    </div>
+                    <span>Ankara</span>
+                    <img src="../images/main_ankara.png" alt="">
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Brief info about cities -->
+    <section id="brief" class="mt-5">
+        <!-- brief title -->
+        <div id="brief-title" class="container">
+            <h2 class="medium-text mb-0 text-secondary">Brief</h2>
+            <div>
+                <hr class="border-color border-width m-0">
+            </div>
+            <h3 class="large-text mt-3">Brief information about cities</h3>
+
+            <!-- the cities selector -->
+            <select name="cities" id="cities-s" class="shadow background-color black-text medium-text p-1">
+                <!-- The selector' options are added with jqury -->
+            </select>
+        </div>
+
+        <!-- brief-card-image -->
+        <div id="b-card-image" class="container d-flex flex-row-reverse mt-5" style="position: relative;">
+            <!-- brief-card -->
+            <div class="card background-color shadow-lg" id="b-card">
+                <div class="card-body">
+                    <h4 class="card-title">Title</h4>
+                    <p class="cardtext">Lorem ipsum dolor sit amet.</p>
+                </div>
+                <div class="card-footer"><a href="" class="card-link text-light">Show All</a></div>
+            </div>
+            <!-- brief-img -->
+            <img src="../images/main_istanbul_2.png" alt="" class="w-75 shadow">
+        </div>
+
+        <br>
+
+    </section>
+
+    <!-- go-up-button -->
+    <button id="go-up-btn" title="go to up" onclick="topFunction()" class="background-color shadow">^</button>
+    <!-- <div id="go-up-btn" class="d-flex flex-row-reverse"><span class="btn background-color large-text m-3">^</span></div> -->
+
+    <!-- img-brief hover script -->
+    <script>
+        $(function () {
+            $(".image-brief").hide();
+
+            $("#grid div div img").hover(function () {
+                $(this).parent().children().first().show();
+                $(this).parent().children().first().css("z-index", "30");
+            });
+
+            $("#grid div div img").mouseleave(function () {
+                $(".image-brief").hide();
+            });
+        });
+    </script>
+
+    <!-- grid image clik script -->
+    <script>
+        $(function () {
+            // when the image is cliked
+            $("#grid div div").click(function () {
+                alert("Hi!");
+            });
+        });
+    </script>
+
+    <!-- brief-text-image-script -->
+    <script>
+        $(function () {
+
+            // read json file
+            let data;
+            $.getJSON("../jsonFiels/cities.json", function (_data) {
+                data = _data;
+
+                // add select's options
+                for(var i=0; i<data["cities"].length;i++){
+                    let txt = document.createElement("option");
+                    txt.innerHTML = data["cities"][i]["name"];
+                    $("#cities-s").append(txt);
+                }
+                
+                // add card's titile and text
+                $("#b-card div h4.card-title").text(data["cities"][0]["name"]);
+                $("#b-card div h4.card-title").css("text-transform","capitalize");
+                $("#b-card div p.cardtext").text(data["cities"][0]["main_info"]);
+            });
+            $("#brief-title select").change(function () {
+                for (var i = 0; i < data["cities"].length; i++) {
+                    // change the img according to selected img
+                    if (data["cities"][i]["name"].toLowerCase() == $("#brief-title select").val().toLowerCase()) {
+                        $("#b-card-image img").attr("src", data["cities"][i]["main_image_2"]);
+                        $("#b-card div h4.card-title").text(data["cities"][i]["name"]);
+                        $("#b-card div p.cardtext").text(data["cities"][i]["main_info"]);
+                    }
+                }
+            });
+        });
+    </script>
+
+    <!-- go-to-up -->
+    <script>
+        // get button
+        var upBtn = document.getElementById("go-up-btn");
+
+        window.onscroll = function(){scrollFunction()};
+
+        function scrollFunction(){
+            if(document.body.scrollTop > 250 || document.documentElement.scrollTop > 250){
+                console.log(document.body.scrollTop , document.documentElement.scrollTop);
+                upBtn.style.display = "block";
+            }else{
+                upBtn.style.display = "none";
+            }
+        }
+
+        function topFunction(){
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+</body>
+
+</html>

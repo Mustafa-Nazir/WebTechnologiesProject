@@ -1,0 +1,145 @@
+body{
+    background-image: linear-gradient(rgba(184, 180, 180, 0.082), rgba(184, 180, 180, 0.253));
+}
+
+/* header */
+
+/* main image */
+#main-image{
+    position: relative;
+    background-image: url("../images/main.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 900px;
+    max-height: 900x;
+}
+/* navbar */
+header nav{
+    position:absolute;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex !important;
+    justify-content: space-between !important;
+}
+header nav div{
+    font-size: 1.9rem;
+    color: rgb(253, 228, 0);
+}
+header nav li a{
+    color: rgb(253, 228, 0);
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+/* image text */
+#image-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    color:white;
+    transform: translate(-50%,-50%);
+    font-weight: bold;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#image-text span a{
+    background-color: rgb(253, 228, 0);
+}
+#image-text span a:hover{
+    background-color: rgb(252, 236, 96);
+}
+
+/* cities-section */
+/* cities title */
+#cities-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#cities-title div{
+    width: 25%;
+}
+
+/* cities grid image */
+#grid img{
+    height: 400px;
+    width: 100%;
+}
+#grid div div{
+    position: relative;
+}
+#grid div div img:hover{
+    filter: brightness(40%);
+    cursor: pointer;
+}
+#grid div div span{
+    top: 90%;
+    position: absolute;
+    background-color: rgb(253, 228, 0);
+    padding: 0.3rem;
+    border-radius: 0.3rem;
+}
+#grid .image-brief{
+    color: white;
+    position: absolute;
+    top: 70%;
+    left: 10%;
+}
+
+/* Brief-section*/
+/*brief title*/
+#brief-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#brief-title div{
+    width: 25%;
+}
+
+#cities-s{
+    border: none;
+    border-radius: 5px;
+    text-transform: capitalize;
+    outline: none;
+}
+
+#b-card{
+    position: absolute;
+    left: 10%;
+    top: 25%;
+    width: 30%;
+    height: 60%;
+}
+#b-card div.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+#b-card div.card-footer{
+    background-color: rgb(37, 0, 209);
+}
+
+/*go-up-button*/
+
+#go-up-btn{
+    display: block;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 25px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 10px;
+}
+#go-up-btn:hover{
+    background-color: rgb(255, 238, 83);
+}
