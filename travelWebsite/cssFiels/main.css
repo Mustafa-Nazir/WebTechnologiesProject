@@ -127,7 +127,7 @@ header nav li a{
 /*go-up-button*/
 
 #go-up-btn{
-    display: block;
+    display: none;
     position: fixed;
     bottom: 20px;
     right: 30px;
@@ -142,4 +142,16 @@ header nav li a{
 }
 #go-up-btn:hover{
     background-color: rgb(255, 238, 83);
+}
+
+/* image-modal */
+#imageModal div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#imageModal div img{
+    width: 100%;
 }

@@ -8,6 +8,9 @@
 
     <!-- jquery CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <!-- Bootstrap js -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <!-- global css file -->
     <link rel="stylesheet" href="../cssFiels/global.css">
@@ -66,40 +69,47 @@
         <!-- cities grid -->
         <div id="grid" class="container">
             <div class="row">
-                <div class="col-sm-3">
+                <div class="col-sm-3" data-toggle="modal" data-target="#imageModal">
                     <div class="image-brief">
-                        <h4 class="mb-2 main-text-color">İstanbul</h4>
-                        <p class="mt-2">Here will be filled.</p>
+                        <h4 class="mb-2 main-text-color">Istanbul</h4>
+                        <p class="mt-2">Galata Kulesi.</p>
                     </div>
-                    <span>İstanbul</span>
+                    <span>Istanbul</span>
                     <img src="../images/main_istanbul.png" alt="">
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-3" data-toggle="modal" data-target="#imageModal">
                     <div class="image-brief">
                         <h4 class="mb-2 main-text-color">Bursa</h4>
-                        <p class="mt-2">Here will be filled.</p>
+                        <p class="mt-2">Tophane Saat Kulesi.</p>
                     </div>
                     <span>Bursa</span>
                     <img src="../images/main_bursa.png" alt="">
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-3" data-toggle="modal" data-target="#imageModal">
                     <div class="image-brief">
                         <h4 class="mb-2 main-text-color">Sakarya</h4>
-                        <p class="mt-2">Here will be filled.</p>
+                        <p class="mt-2">Justinianus Köprüsü.</p>
                     </div>
                     <span>Sakarya</span>
                     <img src="../images/main_sakarya.png" alt="">
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-3" data-toggle="modal" data-target="#imageModal">
                     <div class="image-brief">
                         <h4 class="mb-2 main-text-color">Ankara</h4>
-                        <p class="mt-2">Here will be filled.</p>
+                        <p class="mt-2">Atakule.</p>
                     </div>
                     <span>Ankara</span>
                     <img src="../images/main_ankara.png" alt="">
                 </div>
             </div>
         </div>
+
+        <!-- image-modal -->
+        <div class="modal" id="imageModal">
+            <div class="modal-dialog">
+                <img src="" alt="">
+            </div>
+          </div>
 
     </section>
 
@@ -127,7 +137,7 @@
                     <h4 class="card-title">Title</h4>
                     <p class="cardtext">Lorem ipsum dolor sit amet.</p>
                 </div>
-                <div class="card-footer"><a href="" class="card-link text-light">Show All</a></div>
+                <div class="card-footer"><a id="m-details" href="city_index.html" class="card-link text-light">More Details</a></div>
             </div>
             <!-- brief-img -->
             <img src="../images/main_istanbul_2.png" alt="" class="w-75 shadow">
@@ -162,17 +172,21 @@
         $(function () {
             // when the image is cliked
             $("#grid div div").click(function () {
-                alert("Hi!");
+                for(var i=0; i<data["cities"].length;i++){
+                    if(data["cities"][i]["name"] == $(this).children("span").text().toLowerCase()){
+                        $("#imageModal div img").attr("src" , data["cities"][i]["main_image"]);
+                    }
+                }
             });
         });
     </script>
 
     <!-- brief-text-image-script -->
     <script>
+        var data
         $(function () {
 
             // read json file
-            let data;
             $.getJSON("../jsonFiels/cities.json", function (_data) {
                 data = _data;
 
@@ -210,7 +224,6 @@
 
         function scrollFunction(){
             if(document.body.scrollTop > 250 || document.documentElement.scrollTop > 250){
-                console.log(document.body.scrollTop , document.documentElement.scrollTop);
                 upBtn.style.display = "block";
             }else{
                 upBtn.style.display = "none";
@@ -221,6 +234,15 @@
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
         }
+    </script>
+
+    <!-- when the brief card is cliked  -->
+    <script>
+        let city;
+        $("#m-details").click(function(){
+            city = $("#cities-s").val();
+            localStorage.setItem("c-city",city);
+        });
     </script>
 </body>
 
