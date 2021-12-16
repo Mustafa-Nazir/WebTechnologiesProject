@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jquery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Bootstrap js -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- google-icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- global css file -->
+    <link rel="stylesheet" href="../cssFiels/global.css">
+
+    <link rel="stylesheet" href="../cssFiels/city_view.css">
+
+    <title>The City Views</title>
+</head>
+
+<body>
+
+    <!-- Navbar and main image -->
+    <header>
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-sm">
+            <div class="navbar-nav"><strong>Turkey</strong></div>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="main.html"><i class="material-icons">home</i></a>
+                </li>
+                <li class="nav-item">
+                    <!-- cities-select -->
+                    <div class="form-group">
+                        <select name="" id="cities-s" class="form-control shadow-lg">
+
+                        </select>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <section id="main-text">
+        <h3>Views of </h3>
+    </section>
+    <section>
+
+        <div id="demo" class="carousel slide w-100" data-ride="carousel">
+
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+                <li data-target="#demo" data-slide-to="3"></li>
+            </ul>
+
+            <!-- The slideshow -->
+            <div class="carousel-inner" id="cities-images">
+               
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+
+        </div>
+    </section>
+
+
+    <!-- filling-select-items -->
+    <script>
+        var data
+        $(function () {
+
+            $.getJSON("../jsonFiels/cities.json", function (_data) {
+                data = _data;
+                // add-select-items
+                for (var i = 0; i < data["cities"].length; i++) {
+                    let txt = document.createElement("option");
+                    txt.innerHTML = data["cities"][i]["name"];
+                    $("#cities-s").append(txt);
+                }
+
+
+                let city = localStorage.getItem("c-city");
+                if(city=="")
+                {
+                    city = "istanbul"
+                }
+                AddImages(city);
+            });
+        });
+
+    </script>
+
+    <!-- add-main-text -->
+    <script>
+        $(function () {
+            let city = localStorage.getItem("c-city");
+            ChangeMainText(city);
+        });
+    </script>
+
+    <!-- when the city is changed -->
+    <script>
+        $(function () {
+            $("#cities-s").change(function () {
+                let city = $("#cities-s").val();
+                ChangeMainText(city);
+                AddImages(city);
+            });
+        });
+    </script>
+
+    <!-- Change Main Text -->
+    <script>
+        function ChangeMainText(city) {
+            let text = "Views of ";
+            $("#main-text h3").text(text + city.toUpperCase());
+        }
+    </script>
+
+    <!-- add-the-images -->
+    <script>
+        function AddImages(city) {
+            $("#cities-images").html("");
+            for (var i = 0; i < data["cities"].length; i++) {
+                if (data["cities"][i]["name"] == city) {
+                    for (var j = 0; j < data["cities"][i]["view"].length; j++) {
+                        let div = document.createElement("div");
+                        if (j == 0) {
+                            div.className = "carousel-item active"
+                        } else {
+                            div.className = "carousel-item";
+                        }
+                        let img = document.createElement("img");
+                        img.src=data["cities"][i]["view"][j];
+                        $(div).append(img);
+                        $("#cities-images").append(div);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
