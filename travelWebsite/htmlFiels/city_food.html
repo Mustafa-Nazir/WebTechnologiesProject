@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <head>
     <meta charset="UTF-8">
 
@@ -18,15 +17,14 @@
     <!-- global css file -->
     <link rel="stylesheet" href="../cssFiels/global.css">
 
-    <link rel="stylesheet" href="../cssFiels/city_view.css">
+    <link rel="stylesheet" href="../cssFiels/city_food.css">
 
-    <title>The City Views</title>
+    <title>City Food</title>
+
 </head>
-
 <body>
-
-    <!-- Navbar and main image -->
-    <header>
+     <!-- Navbar and main image -->
+     <header>
         <!-- navbar -->
         <nav class="navbar navbar-expand-sm">
             <div class="navbar-nav"><strong>Turkey</strong></div>
@@ -52,39 +50,32 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="../htmlFiels/main.html">Home</a></li>
                 <li class="breadcrumb-item"><a href="../htmlFiels/city_index.html">City Index</a></li>
-                <li class="breadcrumb-item active" aria-current="page">View</li>
+                <li class="breadcrumb-item active" aria-current="page">Food</li>
               </ol>
         </div>
     </section>
 
     <section id="main-text">
-        <h3>Views of </h3>
+        <h3>Food of </h3>
     </section>
-    <section>
 
-        <div id="demo" class="carousel slide w-100" data-ride="carousel">
-
-            <!-- Indicators -->
-            <ul class="carousel-indicators">
-                <li data-target="#demo" data-slide-to="0" class="active"></li>
-                <li data-target="#demo" data-slide-to="1"></li>
-                <li data-target="#demo" data-slide-to="2"></li>
-                <li data-target="#demo" data-slide-to="3"></li>
-            </ul>
-
-            <!-- The slideshow -->
-            <div class="carousel-inner" id="cities-images">
-               
+    <!-- The Food images -->
+    <section id="food-images">
+        <div class="row">
+            <div class="col-sm-5">
+                <p id="f-text-1" class="large-text"></p>
             </div>
-
-            <!-- Left and right controls -->
-            <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a class="carousel-control-next" href="#demo" data-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </a>
-
+            <div class="col-sm-7" style="justify-content: flex-end;">
+                <img id="f-image-1" src="" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-7">
+                <img id="f-image-2" src="" alt="">
+            </div>
+            <div class="col-sm-5">
+                <p id="f-text-2" class="large-text"></p>
+            </div>
         </div>
     </section>
 
@@ -103,13 +94,13 @@
                     $("#cities-s").append(txt);
                 }
 
-
                 let city = localStorage.getItem("c-city");
                 if(city==null)
                 {
                     city = "istanbul"
                 }
                 AddImages(city);
+                
             });
         });
 
@@ -137,33 +128,27 @@
     <!-- Change Main Text -->
     <script>
         function ChangeMainText(city) {
-            let text = "Views of ";
+            let text = "Food of ";
             $("#main-text h3").text(text + city.toUpperCase());
         }
     </script>
 
-    <!-- add-the-images -->
     <script>
-        function AddImages(city) {
-            $("#cities-images").html("");
-            for (var i = 0; i < data["cities"].length; i++) {
-                if (data["cities"][i]["name"] == city) {
-                    for (var j = 0; j < data["cities"][i]["view"].length; j++) {
-                        let div = document.createElement("div");
-                        if (j == 0) {
-                            div.className = "carousel-item active"
-                        } else {
-                            div.className = "carousel-item";
-                        }
-                        let img = document.createElement("img");
-                        img.src=data["cities"][i]["view"][j];
-                        $(div).append(img);
-                        $("#cities-images").append(div);
-                    }
+        function AddImages(city){
+            for(var i = 0; i < data["cities"].length; i++){
+                if(data["cities"][i]["name"] == city){
+
+                    // change text
+                    $("#f-text-1").html(data["cities"][i]["food"][0]["name"]);
+                    $("#f-text-2").html(data["cities"][i]["food"][1]["name"]);
+
+                    // cahange image
+                    $("#f-image-1").attr("src",data["cities"][i]["food"][0]["image"]);
+                    $("#f-image-2").attr("src",data["cities"][i]["food"][1]["image"]);
+
                 }
             }
         }
     </script>
 </body>
-
 </html>

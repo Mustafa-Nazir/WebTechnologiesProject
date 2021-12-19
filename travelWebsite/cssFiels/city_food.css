@@ -1,0 +1,54 @@
+body{
+    background-image: linear-gradient(to right, rgba(184, 180, 180, 0.082), rgba(184, 180, 180, 0.253));
+}
+
+/* header */
+/* navbar */
+header nav{
+    position:absolute;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex !important;
+    justify-content: space-between !important;
+}
+header nav div{
+    font-size: 1.9rem;
+    color: rgb(253, 228, 0);
+}
+header nav li a{
+    color: rgb(253, 228, 0);
+}
+/*select-items*/
+#cities-s{
+    text-transform: capitalize;
+    background-color: rgb(253, 228, 0) !important;
+}
+
+/* main-text*/
+#main-text{
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#main-text h3{
+    font-size: 4rem;
+    text-shadow: 2px 2px 2px grey;
+}
+
+/* the food images */
+#food-images div.row{
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+}
+#food-images div.row div{
+    display: flex;
+}
+#food-images div.row div.col-sm-5{
+    justify-content: center;
+    align-items: center;
+}
+#food-images div.row div img{
+    width: 70%;
+}

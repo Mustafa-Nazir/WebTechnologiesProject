@@ -46,6 +46,17 @@
                     </li>
                 </ul>
             </nav>
+
+            <!-- breadcrumb -->
+            <section>
+                <div aria-label="breadcrumb">
+                    <ol class="breadcrumb" style="background-color: transparent;">
+                        <li class="breadcrumb-item"><a href="../htmlFiels/main.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">City Index</li>
+                    </ol>
+                </div>
+            </section>
+
             <!-- image-Texts -->
             <div id="grid" class="container">
                 <div class="row">
@@ -61,7 +72,7 @@
                                 </a>
                             </div>
                             <div class="col-sm-6">
-                                <a href="">
+                                <a href="../htmlFiels/city_food.html">
                                     <img src="../images/city_food.png" alt="" class="shadow-lg">
                                     <div>The Food</div>
                                 </a>
@@ -107,7 +118,7 @@
             let gText = "Discover The Best Places and Food of ";
             $("#cities-s").change(function () {
                 let city = $("#cities-s").val();
-                localStorage.setItem("c-city" , city.toLowerCase());
+                localStorage.setItem("c-city", city.toLowerCase());
                 $("#grid-text").text(gText + city.toUpperCase());
             });
         });

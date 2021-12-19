@@ -10,6 +10,16 @@
                 "../images/istanbul/istanbul_2.png",
                 "../images/istanbul/istanbul_3.png",
                 "../images/istanbul/istanbul_4.png"
+            ],
+            "food":[
+                {
+                    "name":"Istanbul Pilavı",
+                    "image":"../images/istanbul/food_1.png"
+                },
+                {
+                    "name":"Sarıyer Böreği",
+                    "image":"../images/istanbul/food_2.png"
+                }
             ]
         },
         {
@@ -22,6 +32,16 @@
                 "../images/bursa/bursa_2.png",
                 "../images/bursa/bursa_3.png",
                 "../images/bursa/bursa_4.png"
+            ],
+            "food":[
+                {
+                    "name":"Pideli Köfte",
+                    "image":"../images/bursa/food_1.png"
+                },
+                {
+                    "name":"Tahinli Pide",
+                    "image":"../images/bursa/food_2.png"
+                }
             ]
         },
         {
@@ -34,6 +54,16 @@
                 "../images/sakarya/sakarya_2.png",
                 "../images/sakarya/sakarya_3.png",
                 "../images/sakarya/sakarya_4.png"
+            ],
+            "food":[
+                {
+                    "name":"Islama Köfte",
+                    "image":"../images/sakarya/food_1.png"
+                },
+                {
+                    "name":"Pırasalı Börek",
+                    "image":"../images/sakarya/food_2.png"
+                }
             ]
         },
         {
@@ -46,6 +76,16 @@
                 "../images/ankara/ankara_2.png",
                 "../images/ankara/ankara_3.png",
                 "../images/ankara/ankara_4.png"
+            ],
+            "food":[
+                {
+                    "name":"Beypazarı Kurusu",
+                    "image":"../images/ankara/food_1.png"
+                },
+                {
+                    "name":"Ankara Tavası",
+                    "image":"../images/ankara/food_2.png"
+                }
             ]
         }
     ]
