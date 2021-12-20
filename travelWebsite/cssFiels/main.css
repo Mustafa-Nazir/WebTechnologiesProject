@@ -155,3 +155,15 @@ header nav li a{
 #imageModal div img{
     width: 100%;
 }
+
+/* contact */
+/* contact-title */
+#contact-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contact-title div{
+    width: 25%;
+}
